@@ -218,6 +218,8 @@ typedef enum ipp_jcollate_e		/**** Job collation types @deprecated@ @exclude all
 
 typedef enum ipp_jstate_e		/**** Job states ****/
 {
+    /* 07/12/2019 Mopria-notice: Add IPP_JSTATE_UNKNOWN and IPP_JOB_UNKNOWN for use. */
+  IPP_JSTATE_UNKNOWN = -1,      /* Job state unknown */
   IPP_JSTATE_PENDING = 3,		/* Job is waiting to be printed */
   IPP_JSTATE_HELD,			/* Job is held for printing */
   IPP_JSTATE_PROCESSING,		/* Job is currently printing */
@@ -227,6 +229,7 @@ typedef enum ipp_jstate_e		/**** Job states ****/
   IPP_JSTATE_COMPLETED			/* Job has completed successfully */
 
 #  ifndef _CUPS_NO_DEPRECATED
+#    define IPP_JOB_UNKNOWN	IPP_JSTATE_UNKNOWN
 #    define IPP_JOB_PENDING	IPP_JSTATE_PENDING
 #    define IPP_JOB_HELD	IPP_JSTATE_HELD
 #    define IPP_JOB_PROCESSING	IPP_JSTATE_PROCESSING
